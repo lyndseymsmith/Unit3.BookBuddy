@@ -40,6 +40,7 @@ function Register() {
       }
       const { token } = await res.json();
       localStorage.setItem("token", token);
+      alert("Registration successful! Welcome to the Library App!");
       navigate("/login");
     } catch (error) {
       setError(error.message);
@@ -80,6 +81,7 @@ function Register() {
         <label>
           Password:{""}
           <input
+            type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required

@@ -6,6 +6,7 @@ import AllBooks from "./components/Books.jsx";
 import UserLogin from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import Account from "./components/Account.jsx";
+import SingleBook from "./components/SingleBook.jsx";
 
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem("token") || "");
@@ -32,7 +33,7 @@ function App() {
         />
         <Route path="/register" element={<Register />} />
         <Route path="/books" element={<AllBooks />} />
-        <Route path="/books/:id" element={<h2>Book Details</h2>} />
+        <Route path="/books/:id" element={<SingleBook token={token}/>} />
         <Route path="/account" element={<Account />} />
         <Route path="/reservations" element={<h2>Reservations</h2>} />
       </Routes>

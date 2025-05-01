@@ -30,6 +30,7 @@ function UserLogin({ onLogin }) {
       const { token } = await res.json();
       onLogin(token);
       localStorage.setItem("token", token);
+      alert("Login successful! Welcome back!");
       
     } catch (error) {
       setError(error.message);

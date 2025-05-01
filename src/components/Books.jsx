@@ -2,11 +2,14 @@
 
 import { GetBooks } from '../API/index.js'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function AllBooks () {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [searchTerm, setSearchTerm] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchBooks() {
@@ -31,22 +34,49 @@ function AllBooks () {
     if (error) {
         return <p>Error: {error.message}</p>
     }
-    // if (books.length === 0) {
-    //     return <p>No books available at the moment.</p>
-    // };
+    if (books.length === 0) {
+        return <p>No books available at the moment.</p>
+    };
+
+    const searchBooks = books.filter(book => {
+        const searchInput = searchTerm.toLowerCase()
+        return (
+            book.title.toLowerCase().includes(searchInput) ||
+            book.author.toLowerCase().includes(searchInput)
+        )
+    })
+
+    const handleDetails = (id) => {
+        navigate (`/books/${id}`)
+    }
 
     return (
         <div className="book-list">
-            {books.map((book) => (
-                <div key={book.id} className="book-card">
-                    <img src={book.coverimage} alt={book.title} style={{height:"150px"}}/>
-                    <h2>{book.title}</h2>
-                    <p>{book.author}</p>
-                    {/* <Link to={`/books/${book.id}`}>View Details</Link> */}
-                </div>    
-            ))}
-        </div>
+        <input
+          type="text"
+          placeholder="Search by title or author..."
+          value={searchTerm}
+          onChange={e => setSearchTerm(e.target.value)}
+        />
+
+        {searchBooks.length === 0
+          ? <p>No books match “{searchTerm}”</p>
+          : searchBooks.map(book => (
+              <div key={book.id} className="book-card">
+                <img
+                  src={book.coverimage}
+                  alt={`${book.title} cover`}
+                  style={{ height: "150px" }}
+                />
+                <h2>{book.title}</h2>
+                <p>by {book.author}</p>
+                <button onClick={() => handleDetails(book.id)} >View Details</button>
+              </div>
+            ))
+        }
+      </div>
     )
-}
+  }
+
 
 export default AllBooks;

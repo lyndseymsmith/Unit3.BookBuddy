@@ -1,4 +1,52 @@
-/* TODO - add your code to create a functional React component that renders details for a single book. Fetch the book data from the provided API. You may consider conditionally rendering a 'Checkout' button for logged in users. */
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-import { getBookDetails } from "../API";
+function SingleBook({ token }) {
+  const [bookDetails, setBookDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    async function fetchBookDetails() {
+      try {
+        const response = await fetch(
+          `https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/books/${id}`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setBookDetails(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchBookDetails();
+  }, [id]);
+
+  
+
+  return (
+    <div className="book-details">
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {!loading && !error && bookDetails && (
+        <div>
+          <h2>{bookDetails.title}</h2>
+          <img src={bookDetails.coverimage} alt={bookDetails.title} style={{ height: "300px"}}/>
+          <p>{bookDetails.author}</p>
+          <p>{bookDetails.description}</p>
+          <button onClick={() => navigate("/books")}>Back</button>
+          {token && (<button onClick= {() => handleReserve(book.id)}>Reserve</button>)}
+          
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default SingleBook;
