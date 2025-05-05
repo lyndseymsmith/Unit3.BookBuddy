@@ -33,8 +33,8 @@ function App() {
         />
         <Route path="/register" element={<Register />} />
         <Route path="/books" element={<AllBooks />} />
-        <Route path="/books/:id" element={<SingleBook token={token}/>} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/books/:id" element={<SingleBook token={token} />} />
+        <Route path="/account" element={<Account token={token} />} />
         <Route path="/reservations" element={<h2>Reservations</h2>} />
       </Routes>
     </>
