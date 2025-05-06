@@ -31,7 +31,6 @@ function UserLogin({ onLogin }) {
       onLogin(token);
       localStorage.setItem("token", token);
       alert("Login successful! Welcome back!");
-      
     } catch (error) {
       setError(error.message);
     }
@@ -40,17 +39,16 @@ function UserLogin({ onLogin }) {
   return (
     <div className="login-form">
       <h1>Login</h1>
-      {error && (
-        <p style={{ color: "red", fontWeight: "bold" }}>
-            {error}
-        </p>
-      )}
+      {error && <p style={{ color: "red", fontWeight: "bold" }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Email"
           value={email}
-          onChange={(e) => {setEmail(e.target.value); setError(null)}}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setError(null);
+          }}
           required
         />
         <input
@@ -67,7 +65,7 @@ function UserLogin({ onLogin }) {
 
       <div>
         <h3>Don't have an account?</h3>
-        <Link className="login-button" to="/register">
+        <Link className="register-button" to="/register">
           Register
         </Link>
       </div>

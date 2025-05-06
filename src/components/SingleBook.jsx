@@ -77,7 +77,8 @@ function SingleBook({ token }) {
             Status:{" "}
             {bookDetails.available === true ? "Available" : "Not Available"}
           </p>
-          <button onClick={() => navigate("/books")}>Back</button>
+
+          <button className="back-button" onClick={() => navigate("/books")}>Back</button>
           {token && (
             <button onClick={() => handleReserve(bookDetails.id)}>
               Reserve

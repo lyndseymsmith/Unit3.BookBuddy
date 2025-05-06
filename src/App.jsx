@@ -7,6 +7,7 @@ import UserLogin from "./components/Login.jsx";
 import Register from "./components/Register.jsx";
 import Account from "./components/Account.jsx";
 import SingleBook from "./components/SingleBook.jsx";
+import Home from "./components/Home.jsx";
 
 function App() {
   const [token, setToken] = useState(() => localStorage.getItem("token") || "");
@@ -26,7 +27,7 @@ function App() {
       <Navigation token={token} setToken={setToken} />
 
       <Routes>
-        <Route path="/" element={<h2>Welcome to the Library App</h2>} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/login"
           element={!token && <UserLogin onLogin={handleLogin} />}

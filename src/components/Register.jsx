@@ -47,9 +47,9 @@ function Register() {
     }
   }
 
-    const handleBack = () => {
-        navigate("/login")
-    }
+  const handleBack = () => {
+    navigate("/login");
+  };
 
   return (
     <div className="register-form">

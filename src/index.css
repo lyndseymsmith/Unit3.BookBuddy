@@ -1,8 +1,15 @@
-body {
-  font-family: Georgia, serif;
-  background-color: #f8f8f8;
-  margin: 0;
-  padding: 0;
+:root {
+  /* Dark Academia Palette */
+  --color-burgundy: #5B1A24;
+  --color-charcoal: #3A2E2D;
+  --color-khaki: #A78652;
+  --color-rose: #B06F66;
+  --color-olive: #3F493D;
+  --color-chocolate: #432E23;
+
+  /* Neutrals */
+  --color-cream: #F5F0ED;
+  --color-text: #2E2E2E;
 }
 
 #logo-image {
@@ -10,4 +17,163 @@ body {
   margin-right: 10px;
 }
 
-/* Add your own custom styles here */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.5;
+}
+a {
+  color: var(--color-burgundy);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.navigation {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--color-charcoal);
+}
+.navigation a,
+.navigation button {
+  color: var(--color-cream);
+  background: none;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+.navigation button:hover,
+.navigation a:hover {
+  color: var(--color-rose);
+}
+.logout-button {
+  color: var(--color-cream);
+}
+nav button.logout-button:hover {
+  color: var(--color-cream);
+}
+
+button {
+  background-color: var(--color-burgundy);
+  color: var(--color-cream);
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+button:hover {
+  background-color: var(--color-rose);
+}
+
+.login-button {
+  background-color: var(--color-burgundy);
+  color: var(--color-cream);
+  margin: 0.5rem;
+}
+
+.register-button {
+  background-color: var(--color-olive);
+  color: var(--color-cream);
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin: 0 0.5rem 0 0;
+}
+
+
+
+input,
+textarea,
+select {
+  border: 1px solid var(--color-charcoal);
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-family: inherit;
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form,
+.register-form,
+.account-page,
+.book-details {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-charcoal);
+  border-radius: 8px;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, serif;
+  color: var(--color-chocolate);
+  margin-top: 0;
+}
+
+.search-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: stretch;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.book-card {
+  background: var(--color-cream);
+  border: 1px solid var(--color-charcoal);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.book-card:hover {
+  transform: translateY(-4px);
+}
+.book-card img {
+  display: block;
+  margin: 0 auto 1rem;
+  max-height: 150px;
+}
+.book-card h2 {
+  font-size: 1.2rem;
+  color: var(--color-chocolate);
+  margin: 0.5rem 0;
+}
+.book-card p {
+  margin: 0.25rem 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul li {
+  margin-bottom: 0.75rem;
+}
+
+.highlight {
+  background-color: var(--color-khaki);
+  padding: 0.25rem;
+  border-radius: 2px;
+}
+
+.back-button {
+  margin: 0 1rem 0 0;
+}
