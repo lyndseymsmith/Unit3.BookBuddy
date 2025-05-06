@@ -1,15 +1,15 @@
 :root {
   /* Dark Academia Palette */
-  --color-burgundy: #5B1A24;
-  --color-charcoal: #3A2E2D;
-  --color-khaki: #A78652;
-  --color-rose: #B06F66;
-  --color-olive: #3F493D;
-  --color-chocolate: #432E23;
+  --color-burgundy: #5b1a24;
+  --color-charcoal: #3a2e2d;
+  --color-khaki: #a78652;
+  --color-rose: #b06f66;
+  --color-olive: #3f493d;
+  --color-chocolate: #432e23;
 
   /* Neutrals */
-  --color-cream: #F5F0ED;
-  --color-text: #2E2E2E;
+  --color-cream: #f5f0ed;
+  --color-text: #2e2e2e;
 }
 
 #logo-image {
@@ -22,9 +22,10 @@ body {
   padding: 0;
   background-color: var(--color-cream);
   color: var(--color-text);
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: Georgia, "Times New Roman", serif;
   line-height: 1.5;
 }
+
 a {
   color: var(--color-burgundy);
   text-decoration: none;
@@ -85,8 +86,6 @@ button:hover {
   margin: 0 0.5rem 0 0;
 }
 
-
-
 input,
 textarea,
 select {
@@ -111,7 +110,9 @@ select {
   border-radius: 8px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: Georgia, serif;
   color: var(--color-chocolate);
   margin-top: 0;
@@ -137,7 +138,7 @@ h1, h2, h3 {
   border: 1px solid var(--color-charcoal);
   border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
